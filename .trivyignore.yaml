@@ -1,0 +1,20 @@
+---
+# SPDX-FileCopyrightText: 2025-present Stuart Ellis <stuart@stuartellis.name>
+#
+# SPDX-License-Identifier: MIT
+#
+# Exclusions for Trivy scanner
+#
+# See:
+#
+# https://aquasecurity.github.io/trivy/latest/docs/configuration/filtering/#trivyignoreyaml
+
+misconfigurations:
+  - id: DS002
+    paths:
+      - ".devcontainer/devcontainer.dockerfile"
+    statement: Dev Container images build with root privileges
+  - id: DS026
+    paths:
+      - ".devcontainer/devcontainer.dockerfile"
+    statement: Dev Container images do not require HEALTHCHECK

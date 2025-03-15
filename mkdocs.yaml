@@ -1,0 +1,39 @@
+---
+# SPDX-FileCopyrightText: 2025-present Stuart Ellis <stuart@stuartellis.name>
+#
+# SPDX-License-Identifier: MIT
+#
+# Configuration for MkDocs
+#
+# See: https://www.mkdocs.org
+
+site_name: "k8s-experiments"
+site_description: "Kubernetes experiments" # yamllint disable-line rule:line-length
+site_url: https://github.com/stuartellis/k8s-experiments
+repo_url: https://github.com/stuartellis/k8s-experiments
+
+nav:
+  - Home:
+      - Overview: index.md
+      - License: license.md
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+
+plugins:
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+
+markdown_extensions:
+  - pymdownx.snippets:
+      base_path: # Paths to search for inclusions
+        - LICENSE.md
+        - README.md
+      check_paths: true
