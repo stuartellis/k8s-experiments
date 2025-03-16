@@ -1,10 +1,10 @@
 {
   "backend_s3": {
-    "tfstate_bucket": "",
-    "tfstate_ddb_table": "",
-    "tfstate_dir": "",
+    "tfstate_bucket": "333594256635-tf-state-dev-eu-west-2",
+    "tfstate_ddb_table": "333594256635-tf-lock-dev-eu-west-2",
+    "tfstate_dir": "dev",
     "region": "eu-west-2",
-    "role_arn": ""
+    "role_arn": "arn:aws:iam::333594256635:role/stuartellis-org-tf-exec-role"
   },
   "metadata": {
     "environment": "dev"
