@@ -2,10 +2,6 @@
 #
 # SPDX-License-Identifier: MIT
 #
-# SPDX-FileCopyrightText: 2025-present Stuart Ellis <stuart@stuartellis.name>
-#
-# SPDX-License-Identifier: MIT
-#
 
 provider "aws" {
 
@@ -22,4 +18,11 @@ provider "aws" {
       Variant     = var.variant
     }
   }
+}
+
+# Manages the default EKS cluster
+provider "kubernetes" {
+  host                   = module.eks_cluster_0010.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks_cluster_0010.cluster_certificate_authority_data)
+  token                  = data.aws_eks_cluster_auth.cluster_0010.token
 }
