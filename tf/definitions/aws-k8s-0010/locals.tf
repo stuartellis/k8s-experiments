@@ -4,7 +4,7 @@
 #
 
 locals {
-  alb_name_prefix         = "${var.environment_name}-${var.variant}"
+  alb_name_prefix         = "${var.product_name}-${var.environment_name}-${var.variant}"
   app_name                = var.product_name
   eks_cluster_name_prefix = "${var.environment_name}-${var.variant}"
   ebs_claim_name          = "ebs-volume-pv-claim-${var.environment_name}-${var.variant}"

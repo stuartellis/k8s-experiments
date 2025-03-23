@@ -26,3 +26,12 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(module.eks_cluster_0010.cluster_certificate_authority_data)
   token                  = data.aws_eks_cluster_auth.cluster_0010.token
 }
+
+# Deploys manifests to the default EKS cluster
+provider "kubectl" {
+  host                   = module.eks_cluster_0010.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks_cluster_0010.cluster_certificate_authority_data)
+  token                  = data.aws_eks_cluster_auth.cluster_0010.token
+  load_config_file       = false
+  apply_retry_count      = var.eks_kubectl_apply_retry_count
+}

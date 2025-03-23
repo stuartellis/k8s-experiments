@@ -12,3 +12,8 @@ variable "eks_cluster_config" {
     vpc_id                           = string
   })
 }
+
+variable "eks_kubectl_apply_retry_count" {
+  type    = number
+  default = 5
+}

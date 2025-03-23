@@ -12,6 +12,12 @@ resource "kubernetes_ingress_v1" "ingress_alb" {
       # Public ALB
       "alb.ingress.kubernetes.io/scheme" = "internet-facing"
 
+      # Name of ALB
+      "alb.ingress.kubernetes.io/load-balancer-name" = "${local.alb_name_prefix}-0010"
+
+      # Network
+      "alb.ingress.kubernetes.io/subnets" = "subnet-07b4d67d, subnet-5ac87816, subnet-eca28485"
+
       # AWS resource tags for ALBs
       "alb.ingress.kubernetes.io/tags" = "Environment=${var.environment_name},Product=${var.product_name},Provisioner=Terraform,Stack=${var.stack_name},Variant=${var.variant}"
     }
@@ -67,7 +73,7 @@ resource "kubernetes_service_v1" "service_alb" {
 }
 
 resource "kubernetes_ingress_class_v1" "ingressclass_alb" {
-  depends_on = [kubernetes_manifest.ingress_class_params]
+  depends_on = [kubectl_manifest.ingress_class_params]
   metadata {
     name = "${local.alb_name_prefix}-ingressclass-alb"
 
@@ -86,15 +92,13 @@ resource "kubernetes_ingress_class_v1" "ingressclass_alb" {
   }
 }
 
-resource "kubernetes_manifest" "ingress_class_params" {
-  manifest = {
-    "apiVersion" = "eks.amazonaws.com/v1"
-    "kind"       = "IngressClassParams"
-    "metadata" = {
-      "name" = "${local.alb_name_prefix}-ingressclassparams-alb"
-    }
-    "spec" = {
-      "scheme" = "internet-facing"
-    }
-  }
+resource "kubectl_manifest" "ingress_class_params" {
+  yaml_body = <<YAML
+    apiVersion: eks.amazonaws.com/v1
+    kind: IngressClassParams
+    metadata:
+      name: "${local.alb_name_prefix}-ingressclassparams-alb"
+    spec:
+      scheme: "internet-facing"
+  YAML
 }
