@@ -2,9 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 #
-# See: https://git-scm.com/docs/gitignore
-
-# Generated TF files
-.terraform
-*.tfstate
-*.tfstate.backup
+# SPDX-FileCopyrightText: 2025-present Stuart Ellis <stuart@stuartellis.name>
+#
+# SPDX-License-Identifier: MIT
+#

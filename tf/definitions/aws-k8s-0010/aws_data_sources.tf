@@ -2,9 +2,5 @@
 #
 # SPDX-License-Identifier: MIT
 #
-# See: https://git-scm.com/docs/gitignore
 
-# Generated TF files
-.terraform
-*.tfstate
-*.tfstate.backup
+data "aws_caller_identity" "current" {}

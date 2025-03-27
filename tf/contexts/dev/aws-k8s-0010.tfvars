@@ -2,9 +2,6 @@
 #
 # SPDX-License-Identifier: MIT
 #
-# See: https://git-scm.com/docs/gitignore
 
-# Generated TF files
-.terraform
-*.tfstate
-*.tfstate.backup
+# ARN of AWS role for TF
+tf_exec_role_arn = "arn:aws:iam::333594256635:role/stuartellis-org-tf-exec-role"
