@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 #
 
-resource "kubernetes_storage_class" "ebs_cluster_0010" {
+resource "kubernetes_storage_class" "ebs_cluster_0015" {
   metadata {
     name = "ebs-storage-class"
     annotations = {
@@ -20,10 +20,10 @@ resource "kubernetes_storage_class" "ebs_cluster_0010" {
     encrypted = "true"
   }
 
-  depends_on = [module.eks_cluster_0010]
+  depends_on = [module.eks_cluster_0015]
 }
 
-resource "kubernetes_persistent_volume_claim_v1" "ebs_pvc_cluster_0010" {
+resource "kubernetes_persistent_volume_claim_v1" "ebs_pvc_cluster_0015" {
   metadata {
     name = local.ebs_claim_name
   }
@@ -43,5 +43,5 @@ resource "kubernetes_persistent_volume_claim_v1" "ebs_pvc_cluster_0010" {
 
   wait_until_bound = false
 
-  depends_on = [module.eks_cluster_0010]
+  depends_on = [module.eks_cluster_0015]
 }

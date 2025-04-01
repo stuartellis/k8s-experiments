@@ -13,7 +13,7 @@ resource "kubernetes_ingress_v1" "ingress_alb" {
       "alb.ingress.kubernetes.io/scheme" = "internet-facing"
 
       # Name of ALB
-      "alb.ingress.kubernetes.io/load-balancer-name" = "${local.alb_name_prefix}-0010"
+      "alb.ingress.kubernetes.io/load-balancer-name" = "${local.alb_name_prefix}-0015"
 
       # Network
       "alb.ingress.kubernetes.io/subnets" = "subnet-07b4d67d, subnet-5ac87816, subnet-eca28485"

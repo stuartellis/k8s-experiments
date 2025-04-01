@@ -4,3 +4,8 @@
 #
 
 data "aws_caller_identity" "current" {}
+
+data "aws_route53_zone" "domain" {
+  provider = aws.us-east-1
+  name     = var.app_domain_name
+}

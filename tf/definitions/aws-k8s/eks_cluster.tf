@@ -3,11 +3,11 @@
 # SPDX-License-Identifier: MIT
 #
 
-module "eks_cluster_0010" {
+module "eks_cluster_0015" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.34"
 
-  cluster_name    = "${local.eks_cluster_name_prefix}-0010"
+  cluster_name    = "${local.eks_cluster_name_prefix}-0015"
   cluster_version = var.eks_cluster_config["k8s_version"]
 
   cluster_endpoint_public_access = var.eks_cluster_config["endpoint_public_access"]
@@ -26,10 +26,10 @@ module "eks_cluster_0010" {
   subnet_ids = var.eks_cluster_config["subnet_ids"]
 
   tags = {
-    TfModule = "eks_cluster_0010"
+    TfModule = "eks_cluster_0015"
   }
 }
 
-data "aws_eks_cluster_auth" "cluster_0010" {
-  name = module.eks_cluster_0010.cluster_name
+data "aws_eks_cluster_auth" "cluster_0015" {
+  name = module.eks_cluster_0015.cluster_name
 }
