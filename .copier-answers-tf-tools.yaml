@@ -9,7 +9,7 @@
 #
 # https://copier.readthedocs.io/en/stable/updating/#never-change-the-answers-file-manually
 
-_commit: v0.19.0
+_commit: v0.26.0
 _src_path: git+https://github.com/stuartellis/copier-tf-tools
 copyright_date: '2025'
 copyright_holder: Stuart Ellis
